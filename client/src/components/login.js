@@ -20,8 +20,8 @@ export default class Login extends Component
             ).then(res =>
             {
                 console.log(res.data);
-                this.setState({loginStatus : res.data.status,userData : res.data.userProfile});
-                console.log('click success ' + this.state.loginStatus );
+                this.setState({loginStatus : res.data.status,userData : res.data.userprofile});
+                console.log('click success ' + this.state.userData.profileName );
             });
         }
     handleChange = (e) =>
@@ -33,7 +33,10 @@ export default class Login extends Component
 render()
     {
         if (this.state.loginStatus === true) {
-            return <Redirect to='/Home'/>
+            return <Redirect to= {{
+                pathname :'/home',
+                state : this.state
+            }}/>
           }
         return (
             <div class="container">
@@ -42,8 +45,8 @@ render()
                     <div class="text-center card">
                         <div class="card-body">
                                     <div class="form-group">
-                                      <div>User Login : </div>  <input type="text" name="userLogin" id="userLogin" onChange = {this.handleChange} placeholder="Search for your favourite artists" class="form-control form-control" />
-                                      <div>Password : </div><input type="password" name="userPassword" id="userPassword" onChange ={this.handleChange} placeholder="Search for your favourite artists" class="form-control form-control"  />
+                                      <div>User Login : </div>  <input type="text" name="userLogin" id="userLogin" onChange = {this.handleChange} placeholder="User Login" class="form-control form-control" />
+                                      <div>Password : </div><input type="password" name="userPassword" id="userPassword" onChange ={this.handleChange} placeholder="Password" class="form-control form-control"  />
                                     </div>
                                     <button type="button" class="btn btn-secondary" onClick = {this.onClickHandler} >Sign in</button>
                          </div>

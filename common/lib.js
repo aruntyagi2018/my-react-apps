@@ -1,5 +1,5 @@
 var fs = require('fs');
-var loginfile = './data/login.data';
+var loginfile = './data/userslogin.data';
 var productfile = './data/product.data';
 var users = {
   getUsers: function (callback) {

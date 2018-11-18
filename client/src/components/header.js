@@ -3,6 +3,15 @@ import React, {Component} from 'react';
 
 export default class Header extends Component
 {
+    
+    constructor(props)
+    {
+        super(props);
+    }
+    onClickHandler = () =>
+    {
+        console.log('logout hamdler');
+    }
     render(){
         return (
             <div>
@@ -10,6 +19,9 @@ export default class Header extends Component
                       <div class="container">
                       <nav class="navbar navbar-expand navbar-light">
                               <a class="navbar-brand"><img src="/images/m_logo.jpg" alt="myTunes Logo" /></a>
+                              <span>
+                                  Welcome to: {this.props.userData.profileName} <a href="javascript:onvoid()" onClick= {this.onClickHandler} >Logout</a>
+                              </span>
                                 <button type="button" class="navbar-toggler">
                                   <span class="navbar-toggler-icon">
                                   </span>
