@@ -5,11 +5,13 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import Favourites from './components/favourites';
+import Home from './components/home';
 
 ReactDOM.render(
     <Router>
         <div>
             <Route exact path="/" component= {App} />
+            <Route path="/home" component = {Home} />
             <Route path="/favourites" component = {Favourites} />
         </div>
     </Router>

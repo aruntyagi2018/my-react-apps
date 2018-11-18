@@ -1,12 +1,16 @@
 var fs = require('fs');
-var loginfile = './data/login.data';
+var loginfile = './data/userslogin.data';
 var files = {
-  readFile: function (filepath,callback) {
-     fs.readFile(filepath, (err, data) => {  
+  readFile: function (callback) {
+    console.log('read file');
+     fs.readFile(loginfile, (err, data) => {  
       if (err)
       {
+        console.log('file read error');
         callback(err,undefined);
       } 
+      console.log('users data ' + data + ' kk ');
+      console.log(' json data ' + JSON.parse(data));
       callback(undefined,JSON.parse(data));
      });
   },
